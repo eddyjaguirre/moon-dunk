@@ -9,7 +9,6 @@ export var jump := 10
 var current_accel = horizontal_accel
 var direction = Vector3()
 var horizontal_vel = Vector3()
-var movement = Vector3()
 var gravity_vector = Vector3()
 
 var full_floor_contact = false
@@ -29,7 +28,7 @@ func physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and (owner.is_on_floor() or full_floor_contact):
 		_state_machine.transition_to("Move/Air", {jump_strength = jump})
 	
-	owner.move_and_slide(get_move_direction(delta), Vector3.UP)
+	owner.move_and_slide(handle_movement(delta), Vector3.UP)
 
 func exit() -> void:
 	pass
@@ -44,7 +43,7 @@ func gravity_handler(delta):
 	else:
 		gravity_vector = -owner.get_floor_normal()
 
-func get_move_direction(delta):
+func get_move_direction():
 	direction = Vector3()
 	if Input.is_action_pressed("move_forward"):
 		direction -= owner.transform.basis.z
@@ -57,7 +56,12 @@ func get_move_direction(delta):
 		direction += owner.transform.basis.x
 	
 	direction = direction.normalized()
-	horizontal_vel = horizontal_vel.linear_interpolate(direction * speed, current_accel * delta)
+	return direction
+
+func handle_movement(delta):
+	var movement = Vector3()
+	
+	horizontal_vel = horizontal_vel.linear_interpolate(get_move_direction() * speed, current_accel * delta)
 	movement.z = horizontal_vel.z + gravity_vector.z
 	movement.x = horizontal_vel.x + gravity_vector.z
 	movement.y = gravity_vector.y

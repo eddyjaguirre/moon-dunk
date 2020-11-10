@@ -5,7 +5,7 @@
 
 [node name="Game" type="Node"]
 
-[node name="Spatial" parent="." instance=ExtResource( 2 )]
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.44001, 0 )
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 0, 3.44001, 0 )
+
+[node name="TestLevel" parent="." instance=ExtResource( 2 )]
