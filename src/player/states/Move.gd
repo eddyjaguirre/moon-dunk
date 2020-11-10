@@ -24,7 +24,6 @@ func unhandled_input(event):
 		owner.head.rotation.x = clamp(owner.head.rotation.x, -89, 80)
 
 func physics_process(delta: float) -> void:
-	print(current_accel)
 	gravity_handler(delta)
 	
 	if Input.is_action_just_pressed("jump") and (owner.is_on_floor() or full_floor_contact):
