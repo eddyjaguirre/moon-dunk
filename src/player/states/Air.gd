@@ -3,7 +3,6 @@ extends State
 export var acceleration := 1
 
 func enter(msg: Dictionary = {}) -> void:
-	print("Air")
 	_parent.current_accel = acceleration
 	if "jump_strength" in msg:
 		_parent.gravity_vector = Vector3.UP * msg.jump_strength

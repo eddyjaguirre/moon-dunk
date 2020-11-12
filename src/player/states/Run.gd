@@ -1,7 +1,7 @@
 extends State
 
 func enter(msg: Dictionary = {}) -> void:
-	print("Run")
+	pass
 
 func unhandled_input(event):
 	_parent.unhandled_input(event)
