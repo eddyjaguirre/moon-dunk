@@ -1,4 +1,3 @@
-tool
 extends RigidBody
 
 onready var deadtimer := $DeadTimer

@@ -7,7 +7,7 @@ onready var ground_check 	:= $GroundCheck
 onready var aimcast			:= $Head/Camera/AimCast
 onready var ball_pos		:= $Head/Hand/Ball
 onready var shoot_timter 	:= $ShootTimer
-onready var ball			:= preload("res://src/player/Ball.tscn")
+onready var ball			:= preload("res://src/player/ball/Ball.tscn")
 
 export var sway				:= 30
 
