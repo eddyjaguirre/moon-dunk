@@ -1,7 +1,7 @@
 extends State
 
 export var speed := 10
-export var horizontal_accel := 6
+export var horizontal_accel := 6.0
 
 export var gravity := 20
 export var jump := 10

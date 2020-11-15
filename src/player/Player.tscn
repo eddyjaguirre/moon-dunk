@@ -51,6 +51,7 @@ material/0 = null
 [node name="Camera" type="Camera" parent="Head"]
 keep_aspect = 0
 current = true
+far = 300.0
 
 [node name="AimCast" type="RayCast" parent="Head/Camera"]
 enabled = true
@@ -103,3 +104,8 @@ script = ExtResource( 4 )
 
 [node name="Air" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 6 )
+acceleration = 0.2
+
+[node name="ShootTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]

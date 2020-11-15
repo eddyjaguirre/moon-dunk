@@ -1,6 +1,6 @@
 extends State
 
-export var acceleration := 1
+export var acceleration := 1.0
 
 func enter(msg: Dictionary = {}) -> void:
 	_parent.current_accel = acceleration
